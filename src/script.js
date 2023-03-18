@@ -20,25 +20,45 @@ const del = document.querySelector('.de')
 let num1, num2, operator
 
 const addFunc = () => {
-  num1 = Number(display.textContent)
+  if (operator == null) {
+    num1 = Number(display.textContent)
+  } else {
+    num2 = Number(display.textContent)
+    operate()
+  }
   operator = 'add'
   display.textContent = ""
 }
 
 const mulFunc = () => {
-  num1 = Number(display.textContent)
+  if (operator == null) {
+    num1 = Number(display.textContent)
+  } else {
+    num2 = Number(display.textContent)
+    operate()
+  }
   operator = 'mul'
   display.textContent = ""
 }
 
 const subFunc = () => {
-  num1 = Number(display.textContent)
+  if (operator == null) {
+    num1 = Number(display.textContent)
+  } else {
+    num2 = Number(display.textContent)
+    operate()
+  }
   operator = 'sub'
   display.textContent = ""
 }
 
 const divideFunc = () => {
-  num1 = Number(display.textContent)
+  if (operator == null) {
+    num1 = Number(display.textContent)
+  } else {
+    num2 = Number(display.textContent)
+    operate()
+  }
   operator = 'divide'
   display.textContent = ""
 }
@@ -51,30 +71,41 @@ const storeNum = (num) => {
     num2 = Number(display.textContent)
   }
 }
-const operate = (num1, num2, operator) => {
+
+const operate = () => {
   if (operator == 'add') {
-    display.textContent = Number(num1) + Number(num2)
+    num1 = Number(num1) + Number(num2)
     operator = null
+    num2 = null
+    display.textContent = num1
   }
 
   if (operator == 'sub') {
-    display.textContent = Number(num1) - Number(num2)
+    num1 = Number(num1) - Number(num2)
     operator = null
+    num2 = null
+    display.textContent = num1
   }
 
   if (operator == 'mul') {
-    display.textContent = Number(num1) * Number(num2)
+    num1 = Number(num1) * Number(num2)
     operator = null
+    num2 = null
+    display.textContent = num1
   }
 
-  if (operator == 'div') {
-    display.textContent = Number(num1) / Number(num2)
+  if (operator == 'divide') {
+    num1 = Number(num1) / Number(num2)
     operator = null
+    num2 = null
+    display.textContent = num1
   }
 }
 
 equals.addEventListener('click', () => {
-  operate(num1, num2, operator)
+  if (num2 != null) {
+    operate()
+  }
 })
 
 reset.addEventListener('click', () => {

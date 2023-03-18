@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -37,13 +38,11 @@ form .display {
     display: flex;
     justify-content: flex-end;
     margin: 20px 0;
-}
-
-form .display input {
     text-align: right;
-    flex: 1;
+    height: 50px;
     font-size: 45px;
     box-shadow: none;
+    color: #fff;
 }
 
 form input.zero {
