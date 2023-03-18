@@ -2,48 +2,50 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./style.css" />
-	<title>Calculator</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Calculator</title>
 </head>
 
 <body>
-	<div class="container">
-		<div class="calculator">
-			<form>
-				<div class="display"></div>
-				<div>
-					<input type="button" class="ac" value="AC">
-					<input type="button" class="de" value="DE">
-					<input type="button" class="dot" value=".">
-					<input type="button" class="divide" onclick="divFunc()" value="/">
-				</div>
-				<div>
-					<input type="button" class="seven" onclick="storeNum(this.value)" value="7">
-					<input type="button" class="eight" onclick="storeNum(this.value)" value="8">
-					<input type="button" class="nine" onclick="storeNum(this.value)" value="9">
-					<input type="button" class="mul" onclick="mulFunc()" value="*">
-				</div>
-				<div>
-					<input type="button" class="four" onclick="storeNum(this.value)" value="4">
-					<input type="button" class="five" onclick="storeNum(this.value)" value="5">
-					<input type="button" class="six" onclick="storeNum(this.value)" value="6">
-					<input type="button" class="sub" onclick="subFunc()" value="-">
-				</div>
-				<div>
-					<input type="button" class="one" onclick="storeNum(this.value)" value="1">
-					<input type="button" class="two" onclick="storeNum(this.value)" value="2">
-					<input type="button" class="three" onclick="storeNum(this.value)" value="3">
-					<input type="button" class="add" onclick="addFunc()" value="+">
-				</div>
-				<div>
-					<input type="button" class="zero" onclick="storeNum(this.value)" value="0">
-					<input type="button" class="equal" value="=">
-				</div>
-			</form>
-		</div>
-	</div>
-	<script src="./script.js"></script>
+  <div class="container">
+    <div class="calculator">
+      <form>
+        <div class="display-container">
+          <div class="display"></div>
+        </div>
+        <div>
+          <input type="button" class="ac" value="AC">
+          <input type="button" class="de" value="DE">
+          <input type="button" class="dot" onclick="addDecimal()" value=".">
+          <input type="button" class="divide" onclick="divFunc()" value="/">
+        </div>
+        <div>
+          <input type="button" class="seven" onclick="storeNum(this.value)" value="7">
+          <input type="button" class="eight" onclick="storeNum(this.value)" value="8">
+          <input type="button" class="nine" onclick="storeNum(this.value)" value="9">
+          <input type="button" class="mul" onclick="mulFunc()" value="*">
+        </div>
+        <div>
+          <input type="button" class="four" onclick="storeNum(this.value)" value="4">
+          <input type="button" class="five" onclick="storeNum(this.value)" value="5">
+          <input type="button" class="six" onclick="storeNum(this.value)" value="6">
+          <input type="button" class="sub" onclick="subFunc()" value="-">
+        </div>
+        <div>
+          <input type="button" class="one" onclick="storeNum(this.value)" value="1">
+          <input type="button" class="two" onclick="storeNum(this.value)" value="2">
+          <input type="button" class="three" onclick="storeNum(this.value)" value="3">
+          <input type="button" class="add" onclick="addFunc()" value="+">
+        </div>
+        <div>
+          <input type="button" class="zero" onclick="storeNum(this.value)" value="0">
+          <input type="button" class="equal" value="=">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./script.js"></script>
 </body>
 
 </html>

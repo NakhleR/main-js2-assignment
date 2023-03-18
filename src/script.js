@@ -25,6 +25,7 @@ const addFunc = () => {
   } else {
     num2 = Number(display.textContent)
     operate()
+    display.textContent = num1
   }
   operator = 'add'
   display.textContent = ""
@@ -36,6 +37,7 @@ const mulFunc = () => {
   } else {
     num2 = Number(display.textContent)
     operate()
+    display.textContent = num1
   }
   operator = 'mul'
   display.textContent = ""
@@ -47,6 +49,7 @@ const subFunc = () => {
   } else {
     num2 = Number(display.textContent)
     operate()
+    display.textContent = num1
   }
   operator = 'sub'
   display.textContent = ""
@@ -58,9 +61,16 @@ const divFunc = () => {
   } else {
     num2 = Number(display.textContent)
     operate()
+    display.textContent = num1
   }
   operator = 'divide'
   display.textContent = ""
+}
+
+const addDecimal = () => {
+  if (!display.textContent.includes('.')) {
+    display.textContent += '.';
+  }
 }
 
 const storeNum = (num) => {
@@ -141,17 +151,68 @@ del.addEventListener('click', () => {
 })
 
 document.addEventListener('keydown', event => {
-  if (event.keyCode === 8) {
-    event.preventDefault()
-    if (operator == null) {
-      display.textContent = display.textContent.slice(0, -1);
-    } else {
-      display.textContent = display.textContent.slice(0, -1);
-      num2 = Number(display.textContent);
-    }
+  const key = event.key;
+  switch (key) {
+    case '0':
+      zero.click();
+      break;
+    case '1':
+      one.click();
+      break;
+    case '2':
+      two.click();
+      break;
+    case '3':
+      three.click();
+      break;
+    case '4':
+      four.click();
+      break;
+    case '5':
+      five.click();
+      break;
+    case '6':
+      six.click();
+      break;
+    case '7':
+      seven.click();
+      break;
+    case '8':
+      eight.click();
+      break;
+    case '9':
+      nine.click();
+      break;
+    case '+':
+      add.click();
+      break;
+    case '-':
+      sub.click();
+      break;
+    case '*':
+      mul.click();
+      break;
+    case '/':
+      divide.click();
+      break;
+    case '.':
+      dot.click();
+      break;
+    case 'Enter':
+      equals.click();
+      break;
+    case 'Backspace':
+      if (operator == null) {
+        display.textContent = display.textContent.slice(0, -1);
+      } else {
+        display.textContent = display.textContent.slice(0, -1);
+        num2 = Number(display.textContent);
+      }
+      break;
+    case 'Escape':
+      reset.click();
+      break;
+    default:
+      break;
   }
-
-  if (event.key === 49) {
-    event.preventDefault()
-  }
-})
+});
