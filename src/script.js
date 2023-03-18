@@ -52,7 +52,7 @@ const subFunc = () => {
   display.textContent = ""
 }
 
-const divideFunc = () => {
+const divFunc = () => {
   if (operator == null) {
     num1 = Number(display.textContent)
   } else {
@@ -95,24 +95,40 @@ const operate = () => {
   }
 
   if (operator == 'divide') {
-    num1 = Number(num1) / Number(num2)
-    operator = null
-    num2 = null
-    display.textContent = num1
+    if (num2 === 0) {
+      display.textContent = "ERROR"
+      operator = null
+    } else {
+      num1 = Number(num1) / Number(num2)
+      operator = null
+      num2 = null
+      display.textContent = num1
+    }
   }
 }
 
 equals.addEventListener('click', () => {
+  if (num1 == undefined && num2 == undefined) {
+    display.textContent = "ERROR"
+  }
   if (num2 != null) {
     operate()
   }
 })
 
 reset.addEventListener('click', () => {
-  display.textContent = ""
-  num1 = 0
-  num2 = 0
-  operator = null
+  if (display.textContent === "") {
+    num1 = undefined
+    num2 = undefined
+    operator = null
+  } else {
+    if (confirm("Are you sure you want to clear data ?")) {
+      display.textContent = ""
+      num1 = undefined
+      num2 = undefined
+      operator = null
+    }
+  }
 })
 
 del.addEventListener('click', () => {
@@ -121,5 +137,21 @@ del.addEventListener('click', () => {
   } else {
     display.textContent = display.textContent.slice(0, -1)
     num2 = Number(display.textContent)
+  }
+})
+
+document.addEventListener('keydown', event => {
+  if (event.keyCode === 8) {
+    event.preventDefault()
+    if (operator == null) {
+      display.textContent = display.textContent.slice(0, -1);
+    } else {
+      display.textContent = display.textContent.slice(0, -1);
+      num2 = Number(display.textContent);
+    }
+  }
+
+  if (event.key === 49) {
+    event.preventDefault()
   }
 })
