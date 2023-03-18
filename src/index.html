@@ -18,28 +18,28 @@
 					<input type="button" class="ac" value="AC">
 					<input type="button" class="de" value="DE">
 					<input type="button" class="dot" value=".">
-					<input type="button" class="divide" value="/">
+					<input type="button" class="divide" onclick="divFunc()" value="/">
 				</div>
 				<div>
-					<input type="button" class="seven" value="7">
-					<input type="button" class="eight" value="8">
-					<input type="button" class="nine" value="9">
-					<input type="button" class="mul" value="*">
+					<input type="button" class="seven" onclick="storeNum(this.value)" value="7">
+					<input type="button" class="eight" onclick="storeNum(this.value)" value="8">
+					<input type="button" class="nine" onclick="storeNum(this.value)" value="9">
+					<input type="button" class="mul" onclick="mulFunc()" value="*">
 				</div>
 				<div>
-					<input type="button" class="four" value="4">
-					<input type="button" class="five" value="5">
-					<input type="button" class="six" value="6">
-					<input type="button" class="minus" value="-">
+					<input type="button" class="four" onclick="storeNum(this.value)" value="4">
+					<input type="button" class="five" onclick="storeNum(this.value)" value="5">
+					<input type="button" class="six" onclick="storeNum(this.value)" value="6">
+					<input type="button" class="sub" onclick="subFunc()" value="-">
 				</div>
 				<div>
-					<input type="button" class="one" value="1">
-					<input type="button" class="two" value="2">
-					<input type="button" class="three" value="3">
-					<input type="button" class="add" value="+">
+					<input type="button" class="one" onclick="storeNum(this.value)" value="1">
+					<input type="button" class="two" onclick="storeNum(this.value)" value="2">
+					<input type="button" class="three" onclick="storeNum(this.value)" value="3">
+					<input type="button" class="add" onclick="addFunc()" value="+">
 				</div>
 				<div>
-					<input type="button" class="zero" value="0">
+					<input type="button" class="zero" onclick="storeNum(this.value)" value="0">
 					<input type="button" class="equal" value="=">
 				</div>
 			</form>

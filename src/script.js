@@ -8,112 +8,87 @@ const six = document.querySelector('.six')
 const seven = document.querySelector('.seven')
 const eight = document.querySelector('.eight')
 const nine = document.querySelector('.nine')
-const minus = document.querySelector('.minus')
+const sub = document.querySelector('.sub')
 const divide = document.querySelector('.divide')
 const add = document.querySelector('.add')
 const mul = document.querySelector('.mul')
 const equals = document.querySelector('.equal')
+const dot = document.querySelector('.dot')
+const reset = document.querySelector('.ac')
+const del = document.querySelector('.de')
 
-let num1 = 0
-let num2 = 0
-let operator = 'none'
+let num1, num2, operator
+
+const addFunc = () => {
+  num1 = Number(display.textContent)
+  operator = 'add'
+  display.textContent = ""
+}
+
+const mulFunc = () => {
+  num1 = Number(display.textContent)
+  operator = 'mul'
+  display.textContent = ""
+}
+
+const subFunc = () => {
+  num1 = Number(display.textContent)
+  operator = 'sub'
+  display.textContent = ""
+}
+
+const divideFunc = () => {
+  num1 = Number(display.textContent)
+  operator = 'divide'
+  display.textContent = ""
+}
 
 const storeNum = (num) => {
-  one.addEventListener('click', () => {
-    num += one.value
-    console.log(num)
-  })
-
-  two.addEventListener('click', () => {
-    num += two.value
-    console.log(num)
-  })
-
-  three.addEventListener('click', () => {
-    num += three.value
-    console.log(num)
-  })
-
-  four.addEventListener('click', () => {
-    num += four.value
-    console.log(num)
-  })
-
-  five.addEventListener('click', () => {
-    num += five.value
-    console.log(num)
-  })
-
-  six.addEventListener('click', () => {
-    num += six.value
-    console.log(num)
-  })
-
-  seven.addEventListener('click', () => {
-    num += seven.value
-    console.log(num)
-  })
-
-  eight.addEventListener('click', () => {
-    num += eight.value
-    console.log(num)
-  })
-
-  nine.addEventListener('click', () => {
-    num += nine.value
-    console.log(num)
-  })
-
-  return Number(num)
+  if (operator == null) {
+    display.textContent += num
+  } else {
+    display.textContent += num
+    num2 = Number(display.textContent)
+  }
 }
-
-const operatorChoice = () => {
-  add.addEventListener('click', () => {
-    operator = 'add'
-    storeNum(num2)
-    console.log(operator)
-  })
-
-  divide.addEventListener('click', () => {
-    operator = 'divide'
-    storeNum(num2)
-    console.log(operator)
-  })
-
-  minus.addEventListener('click', () => {
-    operator = 'minus'
-    storeNum(num2)
-    console.log(operator)
-  })
-
-  mul.addEventListener('click', () => {
-    operator = 'mul'
-    storeNum(num2)
-    console.log(operator)
-  })
-}
-
-let result = 0
-
-const calculator = () => {
-
-  operatorChoice()
-
-  switch (operator) {
-    case 'add':
-      result = Number(num1) + Number(num2)
-    case 'mul':
-      result = Number(num1) * Number(num2)
-    case 'div':
-      result = Number(num1) / Number(num2)
-    case 'sub':
-      result = Number(num1) - Number(num2)
+const operate = (num1, num2, operator) => {
+  if (operator == 'add') {
+    display.textContent = Number(num1) + Number(num2)
+    operator = null
   }
 
-  equals.addEventListener('click', () => {
-    display.textContent = result
-  })
+  if (operator == 'sub') {
+    display.textContent = Number(num1) - Number(num2)
+    operator = null
+  }
 
+  if (operator == 'mul') {
+    display.textContent = Number(num1) * Number(num2)
+    operator = null
+  }
+
+  if (operator == 'div') {
+    display.textContent = Number(num1) / Number(num2)
+    operator = null
+  }
 }
 
-calculator()
+equals.addEventListener('click', () => {
+  operate(num1, num2, operator)
+})
+
+reset.addEventListener('click', () => {
+  display.textContent = ""
+  num1 = 0
+  num2 = 0
+  operator = null
+})
+
+del.addEventListener('click', () => {
+  if (operator == null) {
+    display.textContent = display.textContent.slice(0, -1)
+  } else {
+    display.textContent = display.textContent.slice(0, -1)
+    num2 = Number(display.textContent)
+  }
+})
