@@ -88,21 +88,21 @@ const operate = () => {
     num1 = Number(num1) + Number(num2)
     operator = null
     num2 = null
-    display.textContent = Number(num1.toFixed(2))
+    display.textContent = num1.toFixed(2)
   }
 
   if (operator == 'sub') {
     num1 = Number(num1) - Number(num2)
     operator = null
     num2 = null
-    display.textContent = Number(num1.toFixed(2))
+    display.textContent = num1.toFixed(2)
   }
 
   if (operator == 'mul') {
     num1 = Number(num1) * Number(num2)
     operator = null
     num2 = null
-    display.textContent = Number(num1.toFixed(2))
+    display.textContent = num1.toFixed(2)
   }
 
   if (operator == 'divide') {
@@ -113,7 +113,7 @@ const operate = () => {
       num1 = Number(num1) / Number(num2)
       operator = null
       num2 = null
-      display.textContent = Number(num1.toFixed(2))
+      display.textContent = num1.toFixed(2)
     }
   }
 }
